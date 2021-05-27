@@ -1,0 +1,8 @@
+[$ LOAD_FONT_FILE  { path = "res/dat/fonts.dat" }]
+
+[$ SPLASH_SCREEN_SETUP {
+    image_path = "res/img/splash.png";
+    duration = 4;
+    scale = f0.6;
+    show = FALSE
+}]

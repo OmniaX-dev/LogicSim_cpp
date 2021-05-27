@@ -1,0 +1,121 @@
+[*Chip:
+	name = "74LS04";
+	pinCount = 14;
+	componentImage = "NotGate";
+	componentID = LSC_BASIC_CHIP;
+]
+
+
+[! -----------------------------Power Pins----------------------------- ]
+[Pin:
+	label = "Vcc";
+	type = PIN_TYPE_POWER;
+	edge = LSC_TOP_EDGE;
+	pinPos = 14;
+]
+
+[Pin:
+	label = "GND";
+	type = PIN_TYPE_GROUND;
+	edge = LSC_BOTTOM_EDGE;
+	pinPos = 7;
+]
+[! //-------------------------------------------------------------------- ]
+
+
+[! //-----------------------------Input Pins----------------------------- ]
+[Pin:
+	label = "I1";
+	type = PIN_TYPE_INPUT;
+	edge = LSC_BOTTOM_EDGE;
+	pinPos = 1;
+	signalType = SIG_ACTIVE_HIGH;
+]
+
+[Pin:
+	label = "I2";
+	type = PIN_TYPE_INPUT;
+	edge = LSC_BOTTOM_EDGE;
+	pinPos = 3;
+]
+
+[Pin:
+	label = "I3";
+	type = PIN_TYPE_INPUT;
+	edge = LSC_BOTTOM_EDGE;
+	pinPos = 5;
+]
+
+[Pin:
+	label = "I4";
+	type = PIN_TYPE_INPUT;
+	edge = LSC_TOP_EDGE;
+	pinPos = 9;
+]
+
+[Pin:
+	label = "I5";
+	type = PIN_TYPE_INPUT;
+	edge = LSC_TOP_EDGE;
+	pinPos = 11;
+]
+
+[Pin:
+	label = "I6";
+	type = PIN_TYPE_INPUT;
+	edge = LSC_TOP_EDGE;
+	pinPos = 13;
+]
+[! //-------------------------------------------------------------------- ]
+
+
+
+[! //-----------------------------Output Pins----------------------------- ]
+[Pin:
+	label = "O1";
+	type = PIN_TYPE_OUTPUT;
+	edge = LSC_BOTTOM_EDGE;
+	pinPos = 2;
+	function = "!I1";
+]
+
+[Pin:
+	label = "O2";
+	type = PIN_TYPE_OUTPUT;
+	edge = LSC_BOTTOM_EDGE;
+	pinPos = 4;
+	function = "!I2";
+]
+
+[Pin:
+	label = "O3";
+	type = PIN_TYPE_OUTPUT;
+	edge = LSC_BOTTOM_EDGE;
+	pinPos = 6;
+	function = "!I3";
+]
+
+[Pin:
+	label = "O4";
+	type = PIN_TYPE_OUTPUT;
+	edge = LSC_TOP_EDGE;
+	pinPos = 8;
+	function = "!I4";
+]
+
+[Pin:
+	label = "O5";
+	type = PIN_TYPE_OUTPUT;
+	edge = LSC_TOP_EDGE;
+	pinPos = 10;
+	function = "!I5";
+]
+
+[Pin:
+	label = "O6";
+	type = PIN_TYPE_OUTPUT;
+	edge = LSC_TOP_EDGE;
+	pinPos = 12;
+	function = "!I6";
+]
+[! //--------------------------------------------------------------------- ]

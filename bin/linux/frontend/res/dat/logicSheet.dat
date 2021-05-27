@@ -1,0 +1,107 @@
+[# SPRITE_SIZE = %(120, 70)]
+
+[*SpriteSheet:
+	imagePath  =  "res/img/logic.png";
+	name       =  "LogicSheet";
+	numSprites   =  (8, 20);
+	spriteSize   =  SPRITE_SIZE;
+]
+
+[ANIMATION:
+	name = "NotGate";
+	frameCount = 1;
+	delay = 1;
+	grid = (1, 1);
+	frameOffset = (0, 0);
+	stillFrame = 0;
+	frameSize = SPRITE_SIZE;
+	Still = TRUE;
+]
+
+[ANIMATION:
+	name = "AndGate";
+	frameCount = 1;
+	delay = 1;
+	grid = (1, 1);
+	frameOffset = (1, 0);
+	stillFrame = 0;
+	frameSize = SPRITE_SIZE;
+	Still = TRUE;
+]
+
+[ANIMATION:
+	name = "OrGate";
+	frameCount = 1;
+	delay = 1;
+	grid = (1, 1);
+	frameOffset = (2, 0);
+	stillFrame = 0;
+	frameSize = SPRITE_SIZE;
+	Still = TRUE;
+]
+
+[ANIMATION:
+	name = "NandGate";
+	frameCount = 1;
+	delay = 1;
+	grid = (1, 1);
+	frameOffset = (3, 0);
+	stillFrame = 0;
+	frameSize = SPRITE_SIZE;
+	Still = TRUE;
+]
+
+[ANIMATION:
+	name = "NorGate";
+	frameCount = 1;
+	delay = 1;
+	grid = (1, 1);
+	frameOffset = (4, 0);
+	stillFrame = 0;
+	frameSize = SPRITE_SIZE;
+	Still = TRUE;
+]
+
+[ANIMATION:
+	name = "XorGate";
+	frameCount = 1;
+	delay = 1;
+	grid = (1, 1);
+	frameOffset = (5, 0);
+	stillFrame = 0;
+	frameSize = SPRITE_SIZE;
+	Still = TRUE;
+]
+
+[ANIMATION:
+	name = "XnorGate";
+	frameCount = 1;
+	delay = 1;
+	grid = (1, 1);
+	frameOffset = (6, 0);
+	stillFrame = 0;
+	frameSize = SPRITE_SIZE;
+	Still = TRUE;
+]
+
+[ANIMATION:
+	name = "GenericChip";
+	frameCount = 1;
+	delay = 1;
+	grid = (1, 1);
+	frameOffset = (7, 0);
+	stillFrame = 0;
+	frameSize = SPRITE_SIZE;
+	Still = TRUE;
+]
+
+[ANIMATION:
+	name = "None";
+	frameCount = 1;
+	delay = 1;
+	grid = (1, 1);
+	frameOffset = (7, 19);
+	stillFrame = 0;
+	frameSize = SPRITE_SIZE;
+	Still = TRUE;
+]

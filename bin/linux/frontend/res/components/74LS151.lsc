@@ -1,0 +1,134 @@
+[*Chip:
+	name = "74LS151";
+	pinCount = 16;
+	componentImage = "GenericChip";
+	componentID = LSC_BASIC_CHIP;
+]
+
+
+[! -----------------------------Power Pins----------------------------- ]
+[Pin:
+	label = "Vcc";
+	type = PIN_TYPE_POWER;
+	edge = LSC_TOP_EDGE;
+	pinPos = 16;
+]
+
+[Pin:
+	label = "GND";
+	type = PIN_TYPE_GROUND;
+	edge = LSC_BOTTOM_EDGE;
+	pinPos = 8;
+]
+[! //-------------------------------------------------------------------- ]
+
+
+[! //-----------------------------Data Inputs----------------------------- ]
+[Pin:
+	label = "D3";
+	type = PIN_TYPE_INPUT;
+	edge = LSC_BOTTOM_EDGE;
+	pinPos = 1;
+]
+
+[Pin:
+	label = "D2";
+	type = PIN_TYPE_INPUT;
+	edge = LSC_BOTTOM_EDGE;
+	pinPos = 2;
+]
+
+[Pin:
+	label = "D1";
+	type = PIN_TYPE_INPUT;
+	edge = LSC_BOTTOM_EDGE;
+	pinPos = 3;
+]
+
+[Pin:
+	label = "D0";
+	type = PIN_TYPE_INPUT;
+	edge = LSC_BOTTOM_EDGE;
+	pinPos = 4;
+]
+
+[Pin:
+	label = "D7";
+	type = PIN_TYPE_INPUT;
+	edge = LSC_TOP_EDGE;
+	pinPos = 12;
+]
+
+[Pin:
+	label = "D6";
+	type = PIN_TYPE_INPUT;
+	edge = LSC_TOP_EDGE;
+	pinPos = 13;
+]
+
+[Pin:
+	label = "D5";
+	type = PIN_TYPE_INPUT;
+	edge = LSC_TOP_EDGE;
+	pinPos = 14;
+]
+
+[Pin:
+	label = "D4";
+	type = PIN_TYPE_INPUT;
+	edge = LSC_TOP_EDGE;
+	pinPos = 15;
+]
+[! //-------------------------------------------------------------------- ]
+
+
+[! //-----------------------------Data Select----------------------------- ]
+[Pin:
+	label = "A";
+	type = PIN_TYPE_INPUT;
+	edge = LSC_TOP_EDGE;
+	pinPos = 11;
+]
+
+[Pin:
+	label = "B";
+	type = PIN_TYPE_INPUT;
+	edge = LSC_TOP_EDGE;
+	pinPos = 10;
+]
+
+[Pin:
+	label = "C";
+	type = PIN_TYPE_INPUT;
+	edge = LSC_TOP_EDGE;
+	pinPos = 9;
+]
+[! //--------------------------------------------------------------------- ]
+
+
+[! //-----------------------------Output Pins----------------------------- ]
+[Pin:
+	label = "Y";
+	type = PIN_TYPE_OUTPUT;
+	edge = LSC_BOTTOM_EDGE;
+	pinPos = 5;
+	function = "(!A & !B & !C & D0 & !STROBE) + (A & !B & !C & D1 & !STROBE) + (!A & B & !C & D2 & !STROBE) + (A & B & !C & D3 & !STROBE) + (!A & !B & C & D4 & !STROBE) + (A & !B & C & D5 & !STROBE) + (!A & B & C & D6 & !STROBE) + (A & B & C & D7 & !STROBE)";
+]
+
+[Pin:
+	label = "W";
+	type = PIN_TYPE_OUTPUT;
+	edge = LSC_BOTTOM_EDGE;
+	pinPos = 6;
+	function = "!Y";
+]
+
+[! //--------------------------------------------------------------------- ]
+
+
+[Pin:
+	label = "STROBE";
+	type = PIN_TYPE_INPUT;
+	edge = LSC_BOTTOM_EDGE;
+	pinPos = 7;
+]

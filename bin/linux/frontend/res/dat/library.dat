@@ -1,0 +1,73 @@
+[# CAT_74LS_SERIES = 0]
+[# CAT_DISPLAYS = 1]
+
+[$ LOAD_COMPONENT_SHEET { file = "res/dat/logicSheet.dat" }]
+
+
+[*Category:
+	name = "74LS Series";
+	desc = "74LS Series chips";
+	id = CAT_74LS_SERIES;
+]
+
+[*Category:
+	name = "Displays";
+	desc = "Display chips";
+	id = CAT_DISPLAYS;
+]
+
+
+
+[$ LOAD_COMPONENT_FILE {
+	category = CAT_74LS_SERIES;
+	file = "res/components/74LS48.lsc";
+	desc = "BCD to 7-Segment Decoder/Driver";
+}]
+
+[$ LOAD_COMPONENT_FILE {
+	category = CAT_74LS_SERIES;
+	file = "res/components/74LS151.lsc";
+	desc = "1-of-8 Line Data Selector/Multiplexer";
+}]
+
+[$ LOAD_COMPONENT_FILE {
+	category = CAT_74LS_SERIES;
+	file = "res/components/74LS00.lsc";
+	desc = "Quad 2-Input NAND Gate";
+}]
+
+[$ LOAD_COMPONENT_FILE {
+	category = CAT_74LS_SERIES;
+	file = "res/components/74LS02.lsc";
+	desc = "Quad 2-Input NOR Gate";
+}]
+
+[$ LOAD_COMPONENT_FILE {
+	category = CAT_74LS_SERIES;
+	file = "res/components/74LS04.lsc";
+	desc = "Hex Inverter";
+}]
+
+[$ LOAD_COMPONENT_FILE {
+	category = CAT_74LS_SERIES;
+	file = "res/components/74LS08.lsc";
+	desc = "Quad 2-Input AND Gate";
+}]
+
+[$ LOAD_COMPONENT_FILE {
+	category = CAT_74LS_SERIES;
+	file = "res/components/74LS32.lsc";
+	desc = "Quad 2-Input OR Gate";
+}]
+
+[$ LOAD_COMPONENT_FILE {
+	category = CAT_74LS_SERIES;
+	file = "res/components/74LS86.lsc";
+	desc = "Quad 2-Input XOR Gate";
+}]
+
+[$ LOAD_COMPONENT_FILE {
+	category = CAT_DISPLAYS;
+	file = "res/components/7SegmentDisplayCC.lsc";
+	desc = "Common cathode 7-segment display";
+}]

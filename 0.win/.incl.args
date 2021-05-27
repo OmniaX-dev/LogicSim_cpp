@@ -1,0 +1,1 @@
+-Isrc -Isrc/headers -Ifrontend/headers -Isrc/headers/core -Isrc/headers/data -Isrc/headers/gfx -Isrc/headers/io -Isrc/headers/network -Isrc/headers/gui

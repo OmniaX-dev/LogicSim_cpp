@@ -1,0 +1,119 @@
+[*Chip:
+	name = "74LS08";
+	pinCount = 14;
+	componentImage = "AndGate";
+	componentID = LSC_BASIC_CHIP;
+]
+
+
+[! -----------------------------Power Pins----------------------------- ]
+[Pin:
+	label = "Vcc";
+	type = PIN_TYPE_POWER;
+	edge = LSC_TOP_EDGE;
+	pinPos = 14;
+]
+
+[Pin:
+	label = "GND";
+	type = PIN_TYPE_GROUND;
+	edge = LSC_BOTTOM_EDGE;
+	pinPos = 7;
+]
+[! //-------------------------------------------------------------------- ]
+
+
+[! //-----------------------------Input Pins----------------------------- ]
+[Pin:
+	label = "A1";
+	type = PIN_TYPE_INPUT;
+	edge = LSC_BOTTOM_EDGE;
+	pinPos = 1;
+]
+
+[Pin:
+	label = "B1";
+	type = PIN_TYPE_INPUT;
+	edge = LSC_BOTTOM_EDGE;
+	pinPos = 2;
+]
+
+[Pin:
+	label = "A2";
+	type = PIN_TYPE_INPUT;
+	edge = LSC_BOTTOM_EDGE;
+	pinPos = 4;
+]
+
+[Pin:
+	label = "B2";
+	type = PIN_TYPE_INPUT;
+	edge = LSC_BOTTOM_EDGE;
+	pinPos = 5;
+]
+
+[Pin:
+	label = "A3";
+	type = PIN_TYPE_INPUT;
+	edge = LSC_TOP_EDGE;
+	pinPos = 9;
+]
+
+[Pin:
+	label = "B3";
+	type = PIN_TYPE_INPUT;
+	edge = LSC_TOP_EDGE;
+	pinPos = 10;
+]
+
+[Pin:
+	label = "A4";
+	type = PIN_TYPE_INPUT;
+	edge = LSC_TOP_EDGE;
+	pinPos = 12;
+]
+
+[Pin:
+	label = "B4";
+	type = PIN_TYPE_INPUT;
+	edge = LSC_TOP_EDGE;
+	pinPos = 13;
+]
+[! //-------------------------------------------------------------------- ]
+
+
+
+[! //-----------------------------Output Pins----------------------------- ]
+[Pin:
+	label = "Y1";
+	type = PIN_TYPE_OUTPUT;
+	edge = LSC_BOTTOM_EDGE;
+	pinPos = 3;
+	function = "A1&B1";
+]
+
+[Pin:
+	label = "Y2";
+	type = PIN_TYPE_OUTPUT;
+	edge = LSC_BOTTOM_EDGE;
+	pinPos = 6;
+	function = "A2&B2";
+]
+
+[Pin:
+	label = "Y3";
+	type = PIN_TYPE_OUTPUT;
+	edge = LSC_TOP_EDGE;
+	pinPos = 8;
+	function = "A3&B3";
+]
+
+[Pin:
+	label = "Y4";
+	type = PIN_TYPE_OUTPUT;
+	edge = LSC_TOP_EDGE;
+	pinPos = 11;
+	function = "A4&B4";
+]
+
+[! //--------------------------------------------------------------------- ]

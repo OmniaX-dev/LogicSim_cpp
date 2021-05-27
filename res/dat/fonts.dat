@@ -1,0 +1,51 @@
+[# DEBUG_FONT = "SourceCodeProMedium"]
+[# DEFAULT_TTF = "MonoTTF"]
+[$LOAD_DBG_FONT]
+[$LOAD_DEF_TTF]
+
+[TrueTypeFont:
+	fontPath = "res/fonts/mono.ttf";
+	name = "MonoTTF";
+]
+
+[BitmapFont:
+	imagePath  =  "res/fonts/arial.png";
+	name       =  "Arial";
+	charSize   =  (45, 51);
+	padding    =  (-2, 0);
+]
+
+[BitmapFont:
+	imagePath  =  "res/fonts/arialBold.png";
+	name       =  "ArialBold";
+	charSize   =  (45, 52);
+	padding    =  (-2, 0);
+]
+
+[BitmapFont:
+	imagePath  =  "res/fonts/monoBold.png";
+	name       =  "MonoBold";
+	charSize   =  (40, 60);
+	padding    =  (-3, 0);
+]
+
+[BitmapFont:
+	imagePath  =  "res/fonts/mono.png";
+	name       =  "Mono";
+	charSize   =  (40, 40);
+	padding    =  (-3, 0);
+]
+
+[BitmapFont:
+	imagePath  =  "res/fonts/sourceCodeProMedium.png";
+	name       =  "SourceCodeProMedium";
+	charSize   =  (60, 60);
+	padding    =  (-10, 0);
+]
+
+[BitmapFont:
+	imagePath  =  "res/fonts/sourceCodeProLight.png";
+	name       =  "SourceCodeProLight";
+	charSize   =  (40, 40);
+	padding    =  (-10, 0);
+]

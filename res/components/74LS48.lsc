@@ -1,0 +1,136 @@
+[*Chip:
+	name = "74LS48";
+	pinCount = 16;
+	componentImage = "GenericChip";
+	componentID = LSC_BASIC_CHIP;
+]
+
+
+[! -----------------------------Power Pins----------------------------- ]
+[Pin:
+	label = "Vcc";
+	type = PIN_TYPE_POWER;
+	edge = LSC_TOP_EDGE;
+	pinPos = 16;
+]
+
+[Pin:
+	label = "GND";
+	type = PIN_TYPE_GROUND;
+	edge = LSC_BOTTOM_EDGE;
+	pinPos = 8;
+]
+[! //-------------------------------------------------------------------- ]
+
+
+[! //--------------------------------Inputs------------------------------ ]
+[Pin:
+	label = "A1";
+	type = PIN_TYPE_INPUT;
+	edge = LSC_BOTTOM_EDGE;
+	pinPos = 1;
+]
+
+[Pin:
+	label = "A2";
+	type = PIN_TYPE_INPUT;
+	edge = LSC_BOTTOM_EDGE;
+	pinPos = 2;
+]
+
+[Pin:
+	label = "LT";
+	type = PIN_TYPE_INPUT;
+	edge = LSC_BOTTOM_EDGE;
+	pinPos = 3;
+]
+
+[Pin:
+	label = "RBI";
+	type = PIN_TYPE_INPUT;
+	edge = LSC_BOTTOM_EDGE;
+	pinPos = 5;
+]
+
+[Pin:
+	label = "A3";
+	type = PIN_TYPE_INPUT;
+	edge = LSC_BOTTOM_EDGE;
+	pinPos = 6;
+]
+
+[Pin:
+	label = "A0";
+	type = PIN_TYPE_INPUT;
+	edge = LSC_BOTTOM_EDGE;
+	pinPos = 7;
+]
+[! //-------------------------------------------------------------------- ]
+
+
+
+[! //-------------------------------Outputs------------------------------ ]
+[Pin:
+	label = "BI/RBO";
+	type = PIN_TYPE_OUTPUT;
+	edge = LSC_BOTTOM_EDGE;
+	pinPos = 4;
+	function = "!(LT & !RBI & !A3 & !A2 & !A1 & !A0)";
+]
+
+[Pin:
+	label = "e";
+	type = PIN_TYPE_OUTPUT;
+	edge = LSC_TOP_EDGE;
+	pinPos = 9;
+	function = "(LT & RBI & !A3 & !A2 & !A1 & !A0) + (LT & !A3 & !A2 & A1 & !A0) + (LT & !A3 & A2 & A1 & !A0) + (LT & A3 & !A2 & !A1 & !A0) + (LT & A3 & !A2 & A1 & !A0) + (LT & A3 & A2 & A1 & !A0) + !LT";
+]
+[Pin:
+	label = "d";
+	type = PIN_TYPE_OUTPUT;
+	edge = LSC_TOP_EDGE;
+	pinPos = 10;
+	function = "(LT & RBI & !A3 & !A2 & !A1 & !A0) + (LT & !A3 & !A2 & A1 & !A0) + (LT & !A3 & !A2 & A1 & A0) + (LT & !A3 & A2 & !A1 & A0) + (LT & !A3 & A2 & A1 & !A0) + (LT & !A3 & A2 & A1 & A0) + (LT & A3 & !A2 & A1 & !A0) + (LT & A3 & !A2 & A1 & A0) + (LT & A3 & A2 & !A1 & A0) + (LT & A3 & A2 & A1 & !A0) + !LT";
+]
+
+[Pin:
+	label = "c";
+	type = PIN_TYPE_OUTPUT;
+	edge = LSC_TOP_EDGE;
+	pinPos = 11;
+	function = "(LT & RBI & !A3 & !A2 & !A1 & !A0) + (LT & !A3 & !A2 & !A1 & A0) + (LT & !A3 & !A2 & A1 & A0) + (LT & !A3 & A2 & !A1 & !A0) + (LT & !A3 & A2 & !A1 & A0) + (LT & !A3 & A2 & A1 & !A0) + (LT & !A3 & A2 & A1 & A0) + (LT & A3 & !A2 & !A1 & !A0) + (LT & A3 & !A2 & !A1 & A0) + (LT & A3 & !A2 & A1 & A0) + !LT";
+]
+
+[Pin:
+	label = "b";
+	type = PIN_TYPE_OUTPUT;
+	edge = LSC_TOP_EDGE;
+	pinPos = 12;
+	function = "(LT & RBI & !A3 & !A2 & !A1 & !A0) + (LT & !A3 & !A2 & !A1 & A0) + (LT & !A3 & !A2 & A1 & !A0) + (LT & !A3 & !A2 & A1 & A0) + (LT & !A3 & A2 & !A1 & !A0) + (LT & !A3 & A2 & A1 & A0) + (LT & A3 & !A2 & !A1 & !A0) + (LT & A3 & !A2 & !A1 & A0) + (LT & A3 & A2 & !A1 & A0) + !LT";
+]
+
+[Pin:
+	label = "a";
+	type = PIN_TYPE_OUTPUT;
+	edge = LSC_TOP_EDGE;
+	pinPos = 13;
+	function = "(LT & RBI & !A3 & !A2 & !A1 & !A0) + (LT & !A3 & !A2 & A1 & !A0) + (LT & !A3 & !A2 & A1 & A0) + (LT & !A3 & A2 & !A1 & A0) + (LT & !A3 & A2 & A1 & A0) + (LT & A3 & !A2 & !A1 & !A0) + (LT & A3 & !A2 & !A1 & A0) + (LT & A3 & A2 & !A1 & A0) + (LT & !A3 & !A2 & !A1 & !A0) + !LT";
+]
+
+[Pin:
+	label = "g";
+	type = PIN_TYPE_OUTPUT;
+	edge = LSC_TOP_EDGE;
+	pinPos = 14;
+	function = "(LT & !A3 & !A2 & A1 & !A0) + (LT & !A3 & !A2 & A1 & A0) + (LT & !A3 & A2 & !A1 & !A0) + (LT & !A3 & A2 & !A1 & A0) + (LT & !A3 & A2 & A1 & !A0) + (LT & A3 & !A2 & !A1 & !A0) + (LT & A3 & !A2 & !A1 & A0) + (LT & A3 & !A2 & A1 & !A0) + (LT & A3 & !A2 & A1 & A0) + (LT & A3 & A2 & !A1 & !A0) + (LT & A3 & A2 & !A1 & A0) + (LT & A3 & A2 & A1 & !A0) + !LT";
+]
+
+[Pin:
+	label = "f";
+	type = PIN_TYPE_OUTPUT;
+	edge = LSC_TOP_EDGE;
+	pinPos = 15;
+	function = "(LT & RBI & !A3 & !A2 & !A1 & !A0) + (LT & !A3 & A2 & !A1 & !A0) + (LT & !A3 & A2 & !A1 & A0) + (LT & !A3 & A2 & A1 & !A0) + (LT & A3 & !A2 & !A1 & !A0) + (LT & A3 & !A2 & !A1 & A0) + (LT & A3 & A2 & !A1 & !A0) + (LT & A3 & A2 & !A1 & A0) + (LT & A3 & A2 & A1 & !A0) + !LT";
+]
+
+[! //--------------------------------------------------------------------- ]

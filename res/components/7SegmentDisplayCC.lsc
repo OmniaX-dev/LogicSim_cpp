@@ -1,0 +1,91 @@
+[@ PIN_POS_E = 1]
+[@ PIN_POS_D = 2]
+[@ PIN_POS_C = 4]
+[@ PIN_POS_P = 5]
+[@ PIN_POS_B = 6]
+[@ PIN_POS_A = 7]
+[@ PIN_POS_F = 9]
+[@ PIN_POS_G = 10]
+
+[*Chip:
+	name = "7SDisplayCC";
+	pinCount = 10;
+	componentImage = "None";
+	componentID = LSC_7S_DISPLAY;
+]
+
+
+[! -----------------------------Power Pins----------------------------- ]
+[Pin:
+	label = "GND1";
+	type = PIN_TYPE_GROUND;
+	edge = LSC_BOTTOM_EDGE;
+	pinPos = 3;
+]
+
+[Pin:
+	label = "GND2";
+	type = PIN_TYPE_GROUND;
+	edge = LSC_TOP_EDGE;
+	pinPos = 8;
+]
+[! //-------------------------------------------------------------------- ]
+
+[! //-----------------------------Input Pins----------------------------- ]
+[Pin:
+	label = "E";
+	type = PIN_TYPE_INPUT;
+	edge = LSC_BOTTOM_EDGE;
+	pinPos = PIN_POS_E;
+]
+
+[Pin:
+	label = "D";
+	type = PIN_TYPE_INPUT;
+	edge = LSC_BOTTOM_EDGE;
+	pinPos = PIN_POS_D;
+]
+
+[Pin:
+	label = "C";
+	type = PIN_TYPE_INPUT;
+	edge = LSC_BOTTOM_EDGE;
+	pinPos = PIN_POS_C;
+]
+
+[Pin:
+	label = "DP";
+	type = PIN_TYPE_INPUT;
+	edge = LSC_BOTTOM_EDGE;
+	pinPos = PIN_POS_P;
+]
+
+[Pin:
+	label = "B";
+	type = PIN_TYPE_INPUT;
+	edge = LSC_TOP_EDGE;
+	pinPos = PIN_POS_B;
+]
+
+[Pin:
+	label = "A";
+	type = PIN_TYPE_INPUT;
+	edge = LSC_TOP_EDGE;
+	pinPos = PIN_POS_A;
+]
+
+[Pin:
+	label = "F";
+	type = PIN_TYPE_INPUT;
+	edge = LSC_TOP_EDGE;
+	pinPos = PIN_POS_F;
+]
+
+[Pin:
+	label = "G";
+	type = PIN_TYPE_INPUT;
+	edge = LSC_TOP_EDGE;
+	pinPos = PIN_POS_G;
+]
+
+[! //--------------------------------------------------------------------- ]

@@ -1,0 +1,74 @@
+void LSComponent::adjustPosition(LSEvent& evt, LSRuntimeData& rtdata)
+	{
+		FPoint p(evt.mouseMove.x - m_clickDiff.x, evt.mouseMove.y - m_clickDiff.y);
+		if ((int)abs(p.x - getx()) < GRID_SIZE_PX)
+			p.x = getx();
+		if ((int)abs(p.y - gety()) < GRID_SIZE_PX)
+			p.y = gety();
+		Drawable d;
+		d.setPosition(p);
+		d.setSize(getSize());
+		resetHaltDirs(false, false, false, true);
+		for (auto& c : m_board->m_components)
+		{
+			if (c == this || !d.getBounds().intersects(c->getBounds(), false)) continue;
+			if (m_dirChanged[LSCHD_Left]) //LEFT
+			{
+				float diff = d.getx() - (c->getx() + c->getw());
+				if (m_haltDirs[LSCHD_Left])
+				{
+					d.setx(c->getx() + c->getw());
+				}
+				else if (diff < 0)
+				{
+					m_haltDirs[LSCHD_Left] = true;
+					m_haltDirs[LSCHD_Right] = false;
+					d.addx(-diff);
+				}
+			}
+			else if (m_dirChanged[LSCHD_Right]) //RIGHT
+			{
+				float diff = (d.getx() + d.getw()) - c->getx();
+				if (m_haltDirs[LSCHD_Right])
+				{
+					d.setx(c->getx() - getw());
+				}
+				else if (diff > 0)
+				{
+					m_haltDirs[LSCHD_Right] = true;
+					m_haltDirs[LSCHD_Left] = false;
+					d.subx(-diff);
+				}
+			}
+			if (m_dirChanged[LSCHD_Up]) //UP
+			{
+				float diff = d.gety() - (c->gety() + c->geth());
+				if (m_haltDirs[LSCHD_Up])
+				{
+					d.sety(c->gety() + c->geth());
+				}
+				else if (diff < 0)
+				{
+					m_haltDirs[LSCHD_Up] = true;
+					m_haltDirs[LSCHD_Down] = false;
+					d.addy(-diff);
+				}
+			}
+			else if (m_dirChanged[LSCHD_Down]) //DOWN
+			{
+				float diff = (d.gety() + d.geth()) - c->gety();
+				if (m_haltDirs[LSCHD_Down])
+				{
+					d.sety(c->gety() - geth());
+				}
+				else if (diff > 0)
+				{
+					m_haltDirs[LSCHD_Down] = true;
+					m_haltDirs[LSCHD_Up] = false;
+					d.suby(-diff);
+				}
+			}
+		}
+		setPosition(d.getPosition());
+	}
+
