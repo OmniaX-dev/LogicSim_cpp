@@ -738,7 +738,7 @@ namespace ls
 				b.m_tooltip.render(rtdata);
 		}
 
-		void ToolBar::update(LSRuntimeData& rtdata)
+		void ToolBar::update(LSRuntimeData& rtdata) 
 		{
 			if (isInvalid()) return;
 			for (auto& b : m_buttons)
