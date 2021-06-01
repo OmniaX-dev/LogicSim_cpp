@@ -12,6 +12,7 @@
 	type = PIN_TYPE_POWER;
 	edge = LSC_TOP_EDGE;
 	pinPos = 16;
+	function = "1";
 ]
 
 [Pin:

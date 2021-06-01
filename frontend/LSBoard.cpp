@@ -56,6 +56,12 @@ namespace ls
 			chip->m_component->m_minHeight = GRID_SIZE_PX * 7;
 			chip->m_component->m_minWidth = GRID_SIZE_PX * 6;
 		}
+		else if (chip->getID() == (int32)eLSCID::PowerLine)
+		{
+			chip->m_component = new_sh(LSPowerLine)(m_geometryLayer, *this);
+			chip->m_component->m_minHeight = GRID_SIZE_PX * 3;
+			chip->m_component->m_minWidth = GRID_SIZE_PX * 12;
+		}
 		chip->m_component->m_chip = chip;
 		if (position.x == -1 && position.y == -1)
 			chip->m_component->setPosition(convertToGrid(FPoint(RANDOM(10, 800), RANDOM(10, 600))));
@@ -67,7 +73,7 @@ namespace ls
 		chip->m_componentID = LSChip::nextComponentID();
 		for (auto& p : chip->m_pins)
 		{
-			p.signal = p.func->run();
+			//p.signal = p.func->run();
 			p.parent = &*chip;
 		}
 		m_components.push_back(chip);
@@ -92,9 +98,9 @@ namespace ls
 
 	void LSBoard::drawGrid(void)
 	{
-		for (uint x = 0; x <= m_rtdata.window.getSize().x; x += GRID_SIZE_PX)
+		for (uint32 x = 0; x <= m_rtdata.window.getSize().x; x += GRID_SIZE_PX)
 		{
-			for (uint y = 0; y <= m_rtdata.window.getSize().x; y += GRID_SIZE_PX)
+			for (uint32 y = 0; y <= m_rtdata.window.getSize().x; y += GRID_SIZE_PX)
 			{
 				if (x % (GRID_SIZE_PX * GRID_SIZE_PX) == 0 || y % (GRID_SIZE_PX * GRID_SIZE_PX) == 0)
 					m_gridLayer.get().addQuad(FRect(x - 1, y - 1, 4, 4), LSColors::GridHighlight);

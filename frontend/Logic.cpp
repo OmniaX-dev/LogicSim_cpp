@@ -17,7 +17,7 @@ namespace ls
 		for (unsigned int i = 0; i < exp.length(); i++)
 		{
 			c = exp[i];
-			if (c == ' ') continue;
+			if (c == ' ' || c == '#') continue;
 			else if (c == '1' || c == '0') values.push(c == '1');
 			else if (c == ')')
 			{
@@ -111,7 +111,7 @@ namespace ls
 			{
 				tmp1 = function.substr(0, i);
 				tmp2 = function.substr(i + p.label.length());
-				function = StringBuilder(tmp1).add(Utils::zeroPad("#", p.label.length())).add(tmp2).get();
+				function = StringBuilder(tmp1).add(Utils::zeroPad("#", p.label.length(), '#')).add(tmp2).get();
 				exec[i] = &(p.signal);
 			}
 		}

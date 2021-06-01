@@ -166,8 +166,17 @@ namespace ls
 		if (m_connecting) return;
 		if (m_first == nullptr || m_second == nullptr) return;
 		if (m_first->isInvalid() || m_second->isInvalid()) return;
-		m_first->signal = m_first->func->run();
-		m_second->signal = m_first->signal;
+
+		if ((m_first->func->run() && m_first->parent->m_component->vccSignal()) || (m_second->func->run() && m_second->parent->m_component->vccSignal()))
+		{
+			m_first->signal = true;
+			m_second->signal = true;
+		}
+		else
+		{
+			m_first->signal = false;
+			m_second->signal = false;
+		}
 	}
 	
 	void LSWire::adjustPosition(void)
@@ -482,12 +491,12 @@ namespace ls
 		}
 		if (m_board->m_connectingMode)
 		{
-			if (sender.type != eLSCPinType::Input) return;
+			//if (sender.type != eLSCPinType::Input) return;
 			m_board->m_connectingWire->connect(sender);
 			m_board->m_connectingWire = nullptr;
 			return;
 		}
-		if (sender.type != eLSCPinType::Output) return;
+		//if (sender.type != eLSCPinType::Output) return;
 		if (sender.edge == eLSCPinEdge::Top || sender.edge == eLSCPinEdge::Bottom)
 		{
 			m_board->m_connectingMode = true;
@@ -605,7 +614,7 @@ namespace ls
 			for (auto& w : ls_mainBoard.m_wires)
 			{
 				if (w.isInvalid()) continue;
-				if ((pin.type == eLSCPinType::Output && w.m_first->equals(pin)) || (pin.type == eLSCPinType::Input && w.m_second->equals(pin)))
+				if (w.m_first->equals(pin) || w.m_second->equals(pin))
 				{
 					w.disconnect();
 					rtdata.debugConsole.system("Removed wire.");
@@ -616,7 +625,7 @@ namespace ls
 		{
 			LSPin& pin = (LSPin&)data;
 			ls_cmd.show();
-			ls_cmd.command(StringBuilder("/test_component ").add((int)pin.parent->getComponentID()).get());
+			ls_cmd.command(StringBuilder("/test_component -sig ").add((int)pin.parent->getComponentID()).get());
 		}
 	}
 
@@ -754,5 +763,29 @@ namespace ls
 			else
 				m_boxLayer->get().addQuad(m_segments[i].getBounds(), (m_useCustomSegColor ? m_customSegColor_l : LSColors::LS7SDisplaySegment_low));
 		}
+	}
+	
+	
+	
+	LSPowerLine::LSPowerLine(Layer& boxLayer, LSBoard& board) : LSPinComponent(boxLayer, board)
+	{
+		init();
+	}
+
+	void LSPowerLine::init(void)
+	{
+		m_borderWidth = 1;
+		setValid(true);
+	}
+
+	void LSPowerLine::update(LSRuntimeData& rtdata)
+	{
+		LSPinComponent::update(rtdata);
+	}
+
+	void LSPowerLine::onRender(GameData& gdata, Layer& layer)
+	{
+		m_customBgCol = Color(30, 100, 30, 210);
+		m_useCustomBg = true;
 	}
 }

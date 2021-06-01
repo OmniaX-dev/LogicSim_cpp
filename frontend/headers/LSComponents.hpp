@@ -125,6 +125,7 @@ namespace ls
 			friend class LSLogicFunction;
 			friend class LSCLibrary;
 			friend class LSWire;
+			friend class LSPowerLine;
 	};
 
 	class LSComponentBase : public Drawable, public Object, public EventListener
@@ -180,6 +181,9 @@ namespace ls
 			virtual void pinMousePressed(LSEvent& evt, LSRuntimeData& rtdata, LSPin& sender);
 			void refreshPins(void);
 
+			inline virtual bool vccSignal(void) { return (m_chip->vccPin().isValid() ? m_chip->vccPin().signal : false); }
+			inline virtual bool gndSignal(void) { return (m_chip->gndPin().isValid() ? m_chip->gndPin().signal : true); }
+
 			void loadPinContextMenu(void);
 			static void component_menu_callback(LSRuntimeData& rtdata, Object& sender, Object& data);
 
@@ -227,7 +231,7 @@ namespace ls
 			void init(void);
 			virtual void update(GameData& gdata);
 			virtual void onRender(GameData& gdata, Layer& layer);
-			//virtual void onMouseDragged(LSEvent& evt, LSRuntimeData& rtdata);
+			inline bool vccSignal(void) { return false; }
 
 		private:
 			uint8 m_borderWidth;
@@ -239,6 +243,23 @@ namespace ls
 			Color m_customSegColor_h;
 			Color m_customSegColor_l;
 			uint8 m_segSpacing;
+
+			friend class LSBoard;
+	};
+
+	class LSPowerLine : public LSPinComponent
+	{
+		public:
+			inline LSPowerLine(void) : LSPinComponent() { invalidate(); }
+			LSPowerLine(Layer& boxLayer, LSBoard& board);
+			void init(void);
+			virtual void update(GameData& gdata);
+			virtual void onRender(GameData& gdata, Layer& layer);
+			inline bool vccSignal(void) { return true; }
+			inline bool gndSignal(void) { return false; }
+
+		private:
+			uint8 m_borderWidth;
 
 			friend class LSBoard;
 	};

@@ -1,0 +1,107 @@
+[*Chip:
+	name = "PowerLine";
+	pinCount = 12;
+	componentImage = "None";
+	componentID = LSC_POWER_LINE;
+]
+
+
+[! -----------------------------Power Pins----------------------------- ]
+
+[Pin:
+	label = "Vcc1";
+	type = PIN_TYPE_OUTPUT;
+	edge = LSC_BOTTOM_EDGE;
+	pinPos = 1;
+	function = "1";
+]
+
+[Pin:
+	label = "Vcc2";
+	type = PIN_TYPE_OUTPUT;
+	edge = LSC_BOTTOM_EDGE;
+	pinPos = 21;
+	function = "1";
+]
+
+[Pin:
+	label = "Vcc3";
+	type = PIN_TYPE_OUTPUT;
+	edge = LSC_BOTTOM_EDGE;
+	pinPos = 3;
+	function = "1";
+]
+
+[Pin:
+	label = "Vcc4";
+	type = PIN_TYPE_OUTPUT;
+	edge = LSC_BOTTOM_EDGE;
+	pinPos = 4;
+	function = "1";
+]
+
+[Pin:
+	label = "Vcc5";
+	type = PIN_TYPE_OUTPUT;
+	edge = LSC_BOTTOM_EDGE;
+	pinPos = 5;
+	function = "1";
+]
+
+[Pin:
+	label = "Vcc6";
+	type = PIN_TYPE_OUTPUT;
+	edge = LSC_BOTTOM_EDGE;
+	pinPos = 6;
+	function = "1";
+]
+
+[Pin:
+	label = "Vcc7";
+	type = PIN_TYPE_OUTPUT;
+	edge = LSC_BOTTOM_EDGE;
+	pinPos = 7;
+	function = "1";
+]
+
+[Pin:
+	label = "Vcc8";
+	type = PIN_TYPE_OUTPUT;
+	edge = LSC_BOTTOM_EDGE;
+	pinPos = 8;
+	function = "1";
+]
+
+[Pin:
+	label = "Vcc9";
+	type = PIN_TYPE_OUTPUT;
+	edge = LSC_BOTTOM_EDGE;
+	pinPos = 9;
+	function = "1";
+]
+
+[Pin:
+	label = "Vcc10";
+	type = PIN_TYPE_OUTPUT;
+	edge = LSC_BOTTOM_EDGE;
+	pinPos = 10;
+	function = "1";
+]
+
+[Pin:
+	label = "Vcc11";
+	type = PIN_TYPE_OUTPUT;
+	edge = LSC_BOTTOM_EDGE;
+	pinPos = 11;
+	function = "1";
+]
+
+[Pin:
+	label = "Vcc12";
+	type = PIN_TYPE_OUTPUT;
+	edge = LSC_BOTTOM_EDGE;
+	pinPos = 12;
+	function = "1";
+]
+
+[! //------------------------------------------------------------------ ]

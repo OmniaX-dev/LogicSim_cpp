@@ -11,9 +11,10 @@ namespace ls
 		ls_cmd.initialize();
 		ls_mainBoard.setup("res/dat/library.dat");
 
-		ls_mainBoard.addComponent("74LS151");
+		ls_mainBoard.addComponent("74LS04");
 		ls_mainBoard.addComponent("74LS04");
 		ls_mainBoard.addComponent("7SDisplayCC");
+		ls_mainBoard.addComponent("PowerLine");
 
 		edit.addMenuItem("Copy", nullptr);
 		edit.addMenuItem("Paste", nullptr);
@@ -146,6 +147,7 @@ namespace ls
 
 		DataFile::addGlobal("LSC_7S_DISPLAY", (int32)eLSCID::_7SDisplayCC);
 		DataFile::addGlobal("LSC_BASIC_CHIP", (int32)eLSCID::BasicChip);
+		DataFile::addGlobal("LSC_POWER_LINE", (int32)eLSCID::PowerLine);
 		
 
 		gdata().initONSP();
@@ -161,7 +163,7 @@ namespace ls
 	String Utils::zeroPad(String base, uint16 newLen, char c)
 	{
 		if (newLen <= base.length()) return base;
-		for (uint i = base.length(); i < newLen; i++)
+		for (uint32 i = base.length(); i < newLen; i++)
 			base = base.add(c);
 		return base;
 	}

@@ -69,7 +69,8 @@ namespace ls
 	enum class eLSCID
 	{
 		BasicChip = 0,
-		_7SDisplayCC
+		_7SDisplayCC,
+		PowerLine
 	};
 
 	enum class eLS7SDSeg

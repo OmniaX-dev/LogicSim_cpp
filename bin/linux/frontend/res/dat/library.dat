@@ -1,5 +1,6 @@
 [# CAT_74LS_SERIES = 0]
 [# CAT_DISPLAYS = 1]
+[# CAT_POWER_COMPONENTS = 2]
 
 [$ LOAD_COMPONENT_SHEET { file = "res/dat/logicSheet.dat" }]
 
@@ -14,6 +15,12 @@
 	name = "Displays";
 	desc = "Display chips";
 	id = CAT_DISPLAYS;
+]
+
+[*Category:
+	name = "Power Components";
+	desc = "Power-giving Components";
+	id = CAT_POWER_COMPONENTS;
 ]
 
 
@@ -70,4 +77,10 @@
 	category = CAT_DISPLAYS;
 	file = "res/components/7SegmentDisplayCC.lsc";
 	desc = "Common cathode 7-segment display";
+}]
+
+[$ LOAD_COMPONENT_FILE {
+	category = CAT_POWER_COMPONENTS;
+	file = "res/components/PowerLine.lsc";
+	desc = "12-Output Power Line";
 }]

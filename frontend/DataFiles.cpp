@@ -54,6 +54,7 @@ namespace ls
 			pin.function = "0";
 			pin.func = nullptr;
 			pin.parent = nullptr;
+			bool ghost = false;
 			for (auto& dat : data)
 			{
 				if (dat.name == "label")
@@ -68,15 +69,27 @@ namespace ls
 					pin.signalType = (eLSCSIgnalType)dat.asInt();
 				else if (dat.name == "function")
 					pin.function = dat.value;
+				else if (dat.name == "ghost")
+					ghost = dat.asBool();
 			}
 			if (pin.label != "" && pin.edgePosition > 0) pin.setValid(true);
-			if (pin.isValid() && m_chip.m_pins.size() < m_chip.m_pinCount) m_chip.m_pins.push_back(pin);
-			if (pin.type == eLSCPinType::Power) m_chip.m_pinVcc = &m_chip.m_pins[m_chip.m_pins.size() - 1];
-			else if (pin.type == eLSCPinType::Ground) m_chip.m_pinGnd = &m_chip.m_pins[m_chip.m_pins.size() - 1];
-			if (pin.edge == eLSCPinEdge::Top) m_chip.m_nPinsTop++;
-			else if (pin.edge == eLSCPinEdge::Bottom) m_chip.m_nPinsBottom++;
-			else if (pin.edge == eLSCPinEdge::Left) m_chip.m_nPinsLeft++;
-			else if (pin.edge == eLSCPinEdge::Right) m_chip.m_nPinsRight++;
+			if (ghost)
+			{
+				if (pin.type == eLSCPinType::Power)
+					m_chip.m_pinVcc = new LSPin(pin); //TODO: Delete
+				else if (pin.type == eLSCPinType::Ground)
+					m_chip.m_pinGnd = new LSPin(pin); //TODO: Delete
+			}
+			else
+			{
+				if (pin.isValid() && m_chip.m_pins.size() < m_chip.m_pinCount) m_chip.m_pins.push_back(pin);
+				if (pin.type == eLSCPinType::Power) m_chip.m_pinVcc = &m_chip.m_pins[m_chip.m_pins.size() - 1];
+				else if (pin.type == eLSCPinType::Ground) m_chip.m_pinGnd = &m_chip.m_pins[m_chip.m_pins.size() - 1];
+				if (pin.edge == eLSCPinEdge::Top) m_chip.m_nPinsTop++;
+				else if (pin.edge == eLSCPinEdge::Bottom) m_chip.m_nPinsBottom++;
+				else if (pin.edge == eLSCPinEdge::Left) m_chip.m_nPinsLeft++;
+				else if (pin.edge == eLSCPinEdge::Right) m_chip.m_nPinsRight++;
+			}
 		}
 	}
 
